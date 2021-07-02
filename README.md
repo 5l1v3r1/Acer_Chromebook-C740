@@ -42,18 +42,90 @@ If you remove the jumper the ch341 is a serial console reader, as a TTL Serial C
 The dot i marked is were the VOLTAGE should be, this is really really important otherwise your ship may burn:
 ![Screenshot](.pictures/ch341_programmer_voltage_dots.jpg)
 
-#### Flashing:
-
-First we must find the right clip, this was easy for this device since there is a page on chromiums website (this can be hard to find otherwise if youre new to this)
-
-![](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook)
-
-![Screenshot](https://www.chromium.org/_/rsrc/1381990807648/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook/c720-chromebook-annotated-innards.png)
-
-So we just place our clip on the IC chip
-
-![Screenshot](.pictures/ch341_programmer_voltage_dots.jpg)
-
 #### Reading flash
 
 ![Screenshot](https://nr1.nu//archive/chromebook/videos/reading_flash_chromebook.gif)
+
+# FLASHING PART
+
+##### First we need flashrom, install as below: 
+
+Gentoo:
+
+    emerge --ask flashrom
+
+Ubuntu/Debian/Kali/Mint: 
+
+    apt-get install flashrom
+     
+MrChromebox:
+
+    wget https://mrchromebox.tech/files/util/flashrom_20200918.tar.gz && tar -zxf flashrom_20200918.tar.gz
+
+#### Test connectivity and ensure the flash chip is properly identified:
+
+    flashrom -p ch341a_spi
+
+#### Extract old BIOS:
+
+    flashrom -p ch341a_spi -r old_bios.rom
+    
+#### Write new BIOS: 
+
+It's really important to wait until whole process is done, it will also VERIFY the new bios
+
+    flashrom -p ch341a_spi -w new_bios.rom
+    
+##### Thats it :) 
+
+# ChromeOS Hacking
+
+##### Change serial/service number/tag
+
+     vpd -i RO_VPD -s serial_number=xxxxxxx" (xxxxxxx is the Service Tag of the system
+
+##### Verify that things has been written:
+
+      vpd -l
+
+# Misc:
+
+We are not allowed to browse mrchromebox archive site but after some digging I found 'cbmodels.json' and from here we can get all files (sorry if you don't like this), so with below command you can download all roms from mrchromebox wiki (they all are stored under roms)
+
+     curl -sL https://nr1.nu/archive/chromebook/misc/cbmodels.json|grep -Eo '(http|https)://[^/"].*rom'| xargs wget -q --show-progress
+
+Speeds are from a server in Latvia so bare with the slow speeds :) 
+
+![Screenshot](https://nr1.nu/archive/chromebook/videos/download_roms.gif)
+
+
+Also available from: 
+ 
+     https://nr1.nu/archive/chromebook/roms/
+
+# Firmware Sources for Google ChromeOS
+
+    https://cros.tech/
+    https://cros.tech/table
+    https://cros-updates-serving.appspot.com/
+
+# GREP latest firmwares for your chromebook model (grunt in this example): 
+
+    elinks -dump https://cros-updates-serving.appspot.com/|grep -i grun |cut -d' ' -f3|xargs wget -q --show-progress
+
+# Very good explanation from Raymond Genovese how to reset the pins so I decided to include this in this repo: 
+
+    https://forum.allaboutcircuits.com/threads/resetting-a-bios-chip-very-manually.153848/#post-1322752
+
+"Resetting that chip is very simple. Find the reset pin. It is active low. Connect that pin to ground for at least a us. Of course the chip has to be powered and you have to make sure that you are not applying a ground signal to the pin if it is being held high, unless the circuitry can support that. A reset returns the chip to the power on state. A reset does not erase the flash memory.
+
+On the 8-pin package it is a little more complicated and it depends on some other factors. In fact, the pin that you would use to perform the reset can be programed as an I/O pin and not a reset pin.
+
+I know your question specifically asks if you should do that with or without power and I am intentionally avoiding answering that at this point except to say that if no power is on anywhere, you will not be resetting the chip.
+
+My guess is that you do not really want to reset the chip; you want to reset a portion of your BIOS that is stored on the chip and you hope that you can do that by simply resetting the chip. It is possible that when the system boots up, it looks at that pin/line (which again can be configured as I/O) and if it reads as GND while it is booting up (i.e., it would normally be high); it interrupts the normal boot and executes special code that re-writes dedicated areas of memory that hold configuration data (exactly the kind of data that can appear to brick the machine if it gets corrupted). That could, therefore, be a way that a technician might be able to restore the factory defaults  if the code exists to do so. That is possible, but you would need to make certain it is the case and not just hope it is because it is also possible to do additional damage, especially if you very little experience with such matters.
+
+In my opinion, it is not possible to clear the BIOS by resetting the chip alone. I had an unpleasant experience attempting to help someone who was following such a train of thought (with a different computer) and it was a one way trip. I regret that I ever had attempted to help him at all. But that was my choice and I am willing to help you if I can, as are many others on here.
+
+So, to cut to the chase, how did the computer get trashed and what is it doing or not doing? Why did you decide that you needed to perform the reset to reinstall the factory BIOS settings? Have you already tried any of the many fixes on YouTube and the like?"
+
