@@ -33,9 +33,10 @@ From store, you will get a jumper for pins, hence my own jump on the picture but
 
 ![Screenshot](.pictures/ch3441_as_a_ftdi_sio_reader.jpg)
 
+
 If you remove the jumper the ch341 is a serial console reader, as a TTL Serial Converter (ftdi rs232, for example) adapter:
 
-![Screenshot](.pictures/ch3441_as_a_ftdi_sio_reader.jpg)
+![Screenshot](.pictures/ch341a_dmesg_jumpered.png)
 
 
 #### Reading flash
