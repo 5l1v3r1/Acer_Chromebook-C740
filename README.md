@@ -3,7 +3,7 @@
 This repository is created for To share with me knowledge and everything is done for educational purposes. I take no responsibility whatsoever over other users' responsibility and I urge no one to use these methods to bypass and remotely lock the chromebook.
 
 ![Screenshot](.pictures/banner.png)
-![Screenshot](.pictures/banner2.png)
+![Screenshot](.pictures/banner_2.png)
 
 
 ### Unbrick a bad flash / Bypass a remote locked Chromebook (Acer C740) wich will be my device for show and give you examples, it works same for all laptops no matter what sytem you run.
