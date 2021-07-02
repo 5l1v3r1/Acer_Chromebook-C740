@@ -98,22 +98,22 @@ Speeds are from a server in Latvia so bare with the slow speeds :)
 
 ![Screenshot](https://nr1.nu/archive/chromebook/videos/download_roms.gif)
 
-
 Also available from: 
  
      https://nr1.nu/archive/chromebook/roms/
-
-# Firmware Sources for Google ChromeOS
+     https://github.com/wuseman/Acer_Chromebook-C740/tree/main/roms
+     
+##### Firmware Sources for Google ChromeOS
 
     https://cros.tech/
     https://cros.tech/table
     https://cros-updates-serving.appspot.com/
 
-# GREP latest firmwares for your chromebook model (grunt in this example): 
+##### GREP latest firmwares for your chromebook model (grunt in this example): 
 
     elinks -dump https://cros-updates-serving.appspot.com/|grep -i grun |cut -d' ' -f3|xargs wget -q --show-progress
 
-# Very good explanation from Raymond Genovese how to reset the pins so I decided to include this in this repo: 
+##### Very good explanation from Raymond Genovese how to reset the pins so I decided to include this in this repo: 
 
     https://forum.allaboutcircuits.com/threads/resetting-a-bios-chip-very-manually.153848/#post-1322752
 
