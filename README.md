@@ -1,7 +1,8 @@
 # Acer (Chromebook) - C740
 
-![Screenshot](.pictures/banner.jpg)
 This repository is created for To share with me knowledge and everything is done for educational purposes. I take no responsibility whatsoever over other users' responsibility and I urge no one to use these methods to bypass and remotely lock the chromebook.
+
+![Screenshot](.pictures/banner.jpg)
 
 ### Unbrick a bad flash / Bypass a remote locked chromebook
 
