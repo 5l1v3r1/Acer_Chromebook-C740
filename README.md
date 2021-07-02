@@ -40,6 +40,18 @@ If you remove the jumper the ch341 is a serial console reader, as a TTL Serial C
 The dot i marked is were the VOLTAGE should be, this is really really important otherwise your ship may burn:
 ![Screenshot](.pictures/ch341_programmer_voltage_dots.jpg)
 
+#### Flashing:
+
+First we must find the right clip, this was easy for this device since there is a page on chromiums website (this can be hard to find otherwise if youre new to this)
+
+![](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook)
+
+![Screenshot](https://www.chromium.org/_/rsrc/1381990807648/chromium-os/developer-information-for-chrome-os-devices/acer-c720-chromebook/c720-chromebook-annotated-innards.png)
+
+So we just place our clip on the IC chip
+
+![Screenshot](.pictures/ch341_programmer_voltage_dots.jpg)
+
 #### Reading flash
 
 ![Screenshot](https://nr1.nu//archive/chromebook/videos/reading_flash_chromebook.gif)
