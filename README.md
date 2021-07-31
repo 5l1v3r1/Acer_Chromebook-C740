@@ -1,5 +1,7 @@
 # Acer (Chromebook) - C740
 
+# This repo is far from done, it can be updated any time.
+
 This repository is created for To share with me knowledge and everything is done for educational purposes. I take no responsibility whatsoever over other users' responsibility and I urge no one to use these methods to bypass and remotely lock the chromebook.
 
 All photos is taken with a Google Pixel 4 phone
@@ -100,7 +102,6 @@ Speeds are from a server in Latvia so bare with the slow speeds :)
 
 Also available from: 
  
-     https://nr1.nu/archive/chromebook/roms/
      https://github.com/wuseman/Acer_Chromebook-C740/tree/main/roms
      
 ##### Firmware Sources for Google ChromeOS
@@ -129,3 +130,18 @@ In my opinion, it is not possible to clear the BIOS by resetting the chip alone.
 
 So, to cut to the chase, how did the computer get trashed and what is it doing or not doing? Why did you decide that you needed to perform the reset to reinstall the factory BIOS settings? Have you already tried any of the many fixes on YouTube and the like?"
 
+#### REQUIREMENTS
+
+A chromebook device, soic 8 clip and a ch341 eeprom/bios reader
+
+#### CONTACT 
+
+If you have problems, questions, ideas or suggestions please contact me by posting to wuseman@nr1.nu
+
+#### WEB SITE
+
+Visit my websites and profiles for the latest info and updated tools
+
+https://github.com/wuseman/ && https://nr1.nu && https://stackoverflow.com/users/9887151/wuseman
+
+#### END!
