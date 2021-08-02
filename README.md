@@ -4,6 +4,8 @@
 
 This repository is created for To share with me knowledge and everything is done for educational purposes. I take no responsibility whatsoever over other users' responsibility and I urge no one to use these methods to bypass and remotely lock the chromebook.
 
+All photos is taken with my Google Pixel 4 phone :)
+'
 ![Screenshot](.pictures/banner.jpg)
 ![Screenshot](.pictures/banner_2.jpg)
 
